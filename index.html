@@ -127,13 +127,30 @@
                 </div>
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Riscos e Impedimentos Atuais</h2>
+                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Pontos de atenção</h2>
                 <div class="space-y-4">
 
                     <div>
-                        <h3 class="font-bold text-red-800">Risco 1: O time está sendo acionado para tratar outros temas
-                            (BAU e Bugs) que não deveriam ser trabalhados pela squad. Podemos ter impacto no cronograma
-                            de desenvolvimento previsto inicialmente. </h3>
+                        <p>
+                        <h3 class="font-bold text-red-800">Item 1: O time foi acionado na semana passada e ontem para
+                            apoiar na
+                            análise de um incidente crítico relacionado a consultoras estarem sem nível, esses são temos
+                            que o time
+                            precisa apoiar e que podem gerar impacto, ainda que mínimo, no cronograma de
+                            desenvolvimento.
+                        </h3>
+                        </p>
+                        <br>
+                        <p>
+                        <h3 class="font-bold text-red-800">Item 2: Um das atividades da entrega do Boost que já
+                            estava concluída precisará ser revista devido a uma solicitação do time de CRM, os
+                            relatórios das consultorias semente e bronze inicialmente seriam disponibilizados via Google
+                            Drive, porém, alinhamos que o ideal seria disponibilizar via S3 para otimizar o processo.
+                            Essa mudança terá um impacto previsto de 4 dias no desenvolvimento de uma das lambdas do
+                            novo
+                            plano de crescimento, porém, entendemos que isso impacto poderá ser mitigado ainda na fase
+                            de desenvolvimento.</h3>
+                        </p>
                     </div>
                 </div>
         </main>
@@ -176,7 +193,7 @@
             return lines;
         }
 
-        const taskDistributionData = [30, 0, 5, 1, 8];
+        const taskDistributionData = [29, 1, 5, 1, 8];
         const taskDistributionLabels = ['Backlog', 'Refinamento', 'Desenvolvendo', 'Em teste', 'Concluídas'];
         const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff', '#00A6A6', '#14A568', '#94a3b8'];
 
