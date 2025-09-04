@@ -23,15 +23,6 @@
             margin-right: auto;
         }
 
-        .status-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            flex-shrink: 0;
-        }
-
         .delivery-item {
             border-bottom: 1px solid #e5e7eb;
             padding-bottom: 1rem;
@@ -61,6 +52,10 @@
             .bg-white {
                 background-color: white !important;
                 border: 1px solid #e5e7eb !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
 
             .shadow-lg {
@@ -127,12 +122,6 @@
                 width: 100% !important;
                 height: 200px !important;
                 margin: 0 auto !important;
-            }
-
-            /* Evitar quebras de página desnecessárias */
-            .bg-white {
-                page-break-inside: avoid;
-                break-inside: avoid;
             }
 
             /* Ajustar espaçamentos para impressão */
@@ -206,11 +195,6 @@
                 margin-top: 1rem !important;
             }
 
-            /* Garantir que os boxes dos gráficos tenham largura total */
-            .bg-white {
-                width: 100% !important;
-                box-sizing: border-box !important;
-            }
         }
     </style>
 </head>
@@ -245,8 +229,8 @@
                 <div class="chart-container h-64 md:h-56">
                     <canvas id="taskCompletionChart"></canvas>
                 </div>
-                <p id="taskCompletionSummary" class="mt-4 text-center text-gray-600">Até o momento temos 44 atividades
-                    mapeadas, 8 foram concluídas, representando um avanço de 18,2% no escopo total mapeado até o
+                <p id="taskCompletionSummary" class="mt-4 text-center text-gray-600">Até o momento temos x atividades
+                    mapeadas, x foram concluídas, representando um avanço de x% no escopo total mapeado até o
                     momento.</p>
             </div>
 
@@ -322,58 +306,67 @@
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Próximas entregas</h2>
                 <div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Android] Fluxo de onboarding do plano de crescimento - JCR
-                            -839
+                        <p class="text-left text-gray-600"><strong>[Android] Fluxo de onboarding do plano de crescimento
+                                - JCR
+                                -839</strong>
                             <br> Status: Em teste | 85% concluída (atraso) | Data prevista: 29/08
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Backend] [BFF] - Carrossel da Home - Identificação da
-                            consultora iniciante - JCR-749
+                        <p class="text-left text-gray-600"><strong>[Backend] [BFF] - Carrossel da Home - Identificação
+                                da
+                                consultora iniciante - JCR-749</strong>
                             <br> Status: Pronta para teste | 62% concluída (possível atraso) | Data prevista: 01/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Lambdas] Nova lambda para enviar as mensagens do KAFKA para
-                            o SNS - JCR-930
+                        <p class="text-left text-gray-600"><strong>[Lambdas] Nova lambda para enviar as mensagens do
+                                KAFKA para
+                                o SNS - JCR-930</strong>
                             <br> Status: Pronta para teste | 50% concluída | Data prevista: 05/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Relatórios] Disponibilizar em S3 Relatórios de Semente e
-                            Bronze - Boost Brasil e Hispana - JCR-931
+                        <p class="text-left text-gray-600 "><strong>[Relatórios] Disponibilizar em S3 Relatórios de
+                                Semente e
+                                Bronze - Boost Brasil e Hispana - JCR-931 </strong>
                             <br> Status: Em validação | 75% concluída | Data prevista: 05/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[WEB] Fluxo de onboarding do plano de crescimento - JCR-866
+                        <p class="text-left text-gray-600"><strong>[WEB] Fluxo de onboarding do plano de crescimento -
+                                JCR-866</strong>
                             <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 10/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[WEB] Redesenho do Card de Progressão - JCR-865
+                        <p class="text-left text-gray-600"><strong>[WEB] Redesenho do Card de Progressão -
+                                JCR-865</strong>
                             <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 11/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Android] Redesenho do Carrossel de Progressão - JCR-829
+                        <p class="text-left text-gray-600"><strong>[Android] Redesenho do Carrossel de Progressão -
+                                JCR-829</strong>
                             <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 18/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Lambdas] Implementar Lambda para Processamento de
-                            Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761
+                        <p class="text-left text-gray-600"><strong>[Lambdas] Implementar Lambda para Processamento de
+                                Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761</strong>
                             <br> Status: Em desenvolvimento | 46% concluída | Data prevista: 19/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[iOS] Redesenho do Carrossel de Progressão - JCR-870
+                        <p class="text-left text-gray-600"><strong>[iOS] Redesenho do Carrossel de Progressão -
+                                JCR-870</strong>
                             <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 25/09
                         </p>
                     </div>
                     <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Lambdas] Nova lambda de atualização de Nível da Consultora
-                            de Beleza - JCR-772
+                        <p class="text-left text-gray-600"><strong>[Lambdas] Nova lambda de atualização de Nível da
+                                Consultora
+                                de Beleza - JCR-772</strong>
                             <br> Status: Em desenvolvimento | 33% concluída | Data prevista: 17/10
                         </p>
                     </div>
@@ -424,27 +417,9 @@
             }
         };
 
-        function wrapLabel(label, maxLength = 16) {
-            if (label.length <= maxLength) {
-                return label;
-            }
-            const words = label.split(' ');
-            const lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + word).length > maxLength) {
-                    lines.push(currentLine.trim());
-                    currentLine = '';
-                }
-                currentLine += word + ' ';
-            });
-            lines.push(currentLine.trim());
-            return lines;
-        }
-
         const taskDistributionData = [23, 6, 8, 2, 1, 10];
         const taskDistributionLabels = ['Backlog', 'Refinamento', 'Desenvolvendo', 'Pronta para teste', 'Em teste', 'Concluídas'];
-        const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff', '#00A6A6', '#14A568', '#94a3b8'];
+        const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff'];
 
         const taskFlowContainer = document.getElementById('taskFlowContainer');
         taskDistributionLabels.forEach((label, index) => {
