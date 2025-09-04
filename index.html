@@ -31,6 +31,187 @@
             margin-right: 8px;
             flex-shrink: 0;
         }
+
+        .delivery-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .delivery-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        /* Estilos para impressão */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+
+            .container {
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .bg-white {
+                background-color: white !important;
+                border: 1px solid #e5e7eb !important;
+            }
+
+            .shadow-lg {
+                box-shadow: none !important;
+                border: 1px solid #d1d5db !important;
+            }
+
+            .rounded-xl {
+                border-radius: 8px !important;
+            }
+
+            .text-gray-800 {
+                color: black !important;
+            }
+
+            .text-gray-600 {
+                color: #374151 !important;
+            }
+
+            .text-gray-700 {
+                color: #1f2937 !important;
+            }
+
+            .text-white {
+                color: white !important;
+            }
+
+            .bg-green-500 {
+                background-color: #10b981 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .bg-teal-custom {
+                background-color: #00A6A6 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .text-teal-custom {
+                color: #00A6A6 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .text-red-800 {
+                color: #991b1b !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Garantir que os gráficos sejam visíveis e centralizados */
+            canvas {
+                max-width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                margin: 0 auto !important;
+            }
+
+            .chart-container {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+                height: 200px !important;
+                margin: 0 auto !important;
+            }
+
+            /* Evitar quebras de página desnecessárias */
+            .bg-white {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Ajustar espaçamentos para impressão */
+            .p-6 {
+                padding: 1rem !important;
+            }
+
+            .mb-4 {
+                margin-bottom: 0.5rem !important;
+            }
+
+            .mb-6 {
+                margin-bottom: 0.75rem !important;
+            }
+
+            .mb-10 {
+                margin-bottom: 1rem !important;
+            }
+
+            .gap-8 {
+                gap: 1rem !important;
+            }
+
+            /* Garantir que o grid funcione na impressão */
+            .grid {
+                display: block !important;
+            }
+
+            .grid>div {
+                display: block !important;
+                width: 100% !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Manter as linhas de separação */
+            .delivery-item {
+                border-bottom: 1px solid #d1d5db !important;
+            }
+
+            /* Ajustar o cabeçalho */
+            header {
+                page-break-after: avoid;
+                break-after: avoid;
+                margin-top: 2rem !important;
+                padding-top: 1rem !important;
+            }
+
+            header h1 {
+                margin-bottom: 1.5rem !important;
+            }
+
+            header p {
+                margin-top: 1.5rem !important;
+            }
+
+            h1,
+            h2,
+            h3 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            /* Centralizar conteúdo dos boxes de gráficos */
+            .bg-white>h2 {
+                text-align: center !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .bg-white>p {
+                text-align: center !important;
+                margin-top: 1rem !important;
+            }
+
+            /* Garantir que os boxes dos gráficos tenham largura total */
+            .bg-white {
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
     </style>
 </head>
 
@@ -38,23 +219,25 @@
 
     <div class="container mx-auto p-4 md:p-8">
         <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#00A6A6]">Status Report: Novo Plano de Crescimento</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-teal-custom">Status Report: Novo Plano de Crescimento</h1>
             <p class="text-lg text-gray-600 mt-2">Atualizado em: 02 de Setembro de 2025 | Squad: Crescimento & Retenção
             </p>
         </header>
 
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div
-                class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center text-center">
-                <h2 class="text-xl font-bold text-gray-700 mb-4">Status Geral do Projeto</h2>
-                <div class="w-32 h-32 rounded-full bg-green-500 flex items-center justify-center shadow-inner">
-                    <span class="text-white text-3xl font-bold">No Prazo</span>
+            <div class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
+                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Status Geral do Projeto</h2>
+                <div class="flex flex-col items-center justify-center flex-grow">
+                    <div class="w-40 h-40 rounded-full bg-green-500 flex items-center justify-center shadow-inner mb-4">
+                        <span class="text-white text-2xl font-bold text-center leading-tight">No Prazo</span>
+                    </div>
+                    <p class="text-center text-gray-600">Tivemos pequenos atrasos no desenvolvimento de algumas
+                        atividades, porém,
+                        até o momento
+                        os impactos foram mínimos para o cronograma, estamos sem impedimentos críticos
+                        no momento.</p>
                 </div>
-                <p class="mt-4 text-gray-600">Tivemos pequenos atrasos no desenvolvimento de algumas atividades, porém,
-                    até o momento
-                    os impactos foram mínimos para o cronograma, estamos sem impedimentos críticos
-                    no momento.</p>
             </div>
 
             <div class="bg-white rounded-xl shadow-lg p-6">
@@ -85,97 +268,129 @@
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Atividades concluídas</h2>
-                <div class="space-y-4">
-                    <p class="text-left text-gray-600 mb-4">(Boost) Configuração no motor - Receber o indicador de
-                        Performance - JCR-672
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">(Boost) [Lambda 1] Criar lambda para consumir API do CMM,
-                        filtrando a árvore de estrutura comercial - JCR-708
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">(Boost) [Lambda 2] Lambda para identificar a CB dentro do
-                        período (parâmetro para cada país) - considerar tabelas - JCR-671
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">(Boost) [Lambda 3] Realizar a classificação da CB de acordo
-                        com sua atividade - JCR-709
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">(Boost) [Relatórios] Disponibilizar Relatórios de Semente e
-                        Bronze - Boost Brasil e Hispana - JCR-811
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">Disponibilizar todas as Cbs que migraram de nível no ciclo
-                        em uma tabela do banco de dados para CDC do Bricks - JCR-673
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Backend] [BFF] [API] -Buscar e Exibir Informações de Nível
-                        da Consultora via API e BFF- JCR-742
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">Desenvolvimento modelagem de banco de dados - JCR-733
-                    </p>
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[IOS] Fluxo de onboarding do plano de crescimento - JCR-856
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Lambdas] Nova lambda de busca de configuração- JCR-753
-                    </p>
+                <div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">(Boost) Configuração no motor - Receber o indicador de
+                            Performance - JCR-672
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">(Boost) [Lambda 1] Criar lambda para consumir API do CMM,
+                            filtrando a árvore de estrutura comercial - JCR-708
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">(Boost) [Lambda 2] Lambda para identificar a CB dentro do
+                            período (parâmetro para cada país) - considerar tabelas - JCR-671
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">(Boost) [Lambda 3] Realizar a classificação da CB de acordo
+                            com sua atividade - JCR-709
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">(Boost) [Relatórios] Disponibilizar Relatórios de Semente e
+                            Bronze - Boost Brasil e Hispana - JCR-811
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">Disponibilizar todas as Cbs que migraram de nível no ciclo
+                            em uma tabela do banco de dados para CDC do Bricks - JCR-673
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Backend] [BFF] [API] -Buscar e Exibir Informações de Nível
+                            da Consultora via API e BFF- JCR-742
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">Desenvolvimento modelagem de banco de dados - JCR-733
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[IOS] Fluxo de onboarding do plano de crescimento - JCR-856
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Lambdas] Nova lambda de busca de configuração- JCR-753
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Próximas entregas</h2>
-                <div class="space-y-4">
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Android] Fluxo de onboarding do plano de crescimento - JCR
-                        -839 <br> Data
-                        prevista: 29/08 - Status: Em teste - 85% concluída (atraso)
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Backend] [BFF] - Carrossel da Home - Identificação da
-                        consultora iniciante - JCR-749 <br> Data
-                        prevista: 01/09 - Status: Pronta para teste - 62% concluída (possível atraso)
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Lambdas] Nova lambda para enviar as mensagens do KAFKA para
-                        o SNS - JCR-930 <br> Data
-                        prevista: 05/09 - Status: Pronta para teste - 50% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Relatórios] Disponibilizar em S3 Relatórios de Semente e
-                        Bronze - Boost Brasil e Hispana - JCR-931 <br> Data
-                        prevista: 05/09 - Status: Em validação - 75% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[WEB] Fluxo de onboarding do plano de crescimento - JCR-866
-                        <br> Data
-                        prevista: 10/09 - Status: Em desenvolvimento - 0% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[WEB] Redesenho do Card de Progressão - JCR-865
-                        <br> Data
-                        prevista: 11/09 - Status: Em desenvolvimento - 0% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Android] Redesenho do Carrossel de Progressão - JCR-829
-                        <br> Data
-                        prevista: 18/09 - Status: Em desenvolvimento - 0% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Lambdas] Implementar Lambda para Processamento de
-                        Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761 <br> Data
-                        prevista: 19/09 - Status: Em desenvolvimento - 46% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[iOS] Redesenho do Carrossel de Progressão - JCR-870
-                        <br> Data
-                        prevista: 25/09 - Status: Em desenvolvimento - 0% concluída
-                    </p>
-                    <p class="text-left text-gray-600 mb-4">[Lambdas] Nova lambda de atualização de Nível da Consultora
-                        de Beleza - JCR-772 <br> Data
-                        prevista: 17/10 - Status: Em desenvolvimento - 33% concluída
-                    </p>
+                <div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Android] Fluxo de onboarding do plano de crescimento - JCR
+                            -839
+                            <br> Status: Em teste | 85% concluída (atraso) | Data prevista: 29/08
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Backend] [BFF] - Carrossel da Home - Identificação da
+                            consultora iniciante - JCR-749
+                            <br> Status: Pronta para teste | 62% concluída (possível atraso) | Data prevista: 01/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Lambdas] Nova lambda para enviar as mensagens do KAFKA para
+                            o SNS - JCR-930
+                            <br> Status: Pronta para teste | 50% concluída | Data prevista: 05/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Relatórios] Disponibilizar em S3 Relatórios de Semente e
+                            Bronze - Boost Brasil e Hispana - JCR-931
+                            <br> Status: Em validação | 75% concluída | Data prevista: 05/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[WEB] Fluxo de onboarding do plano de crescimento - JCR-866
+                            <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 10/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[WEB] Redesenho do Card de Progressão - JCR-865
+                            <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 11/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Android] Redesenho do Carrossel de Progressão - JCR-829
+                            <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 18/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Lambdas] Implementar Lambda para Processamento de
+                            Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761
+                            <br> Status: Em desenvolvimento | 46% concluída | Data prevista: 19/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[iOS] Redesenho do Carrossel de Progressão - JCR-870
+                            <br> Status: Em desenvolvimento | 0% concluída | Data prevista: 25/09
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Lambdas] Nova lambda de atualização de Nível da Consultora
+                            de Beleza - JCR-772
+                            <br> Status: Em desenvolvimento | 33% concluída | Data prevista: 17/10
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Pontos de atenção</h2>
-                <div class="space-y-4">
+                <div>
 
-                    <div>
-                        <p>
+                    <div class="delivery-item">
                         <h3 class="font-bold text-red-800">Ponto 1: Mudança de conteúdo - Algumas atividades foram
                             impactadas devido a
                             alterações de
                             conteúdo, sem prejuízo para a entrega final.
                         </h3>
-                        </p>
-                        <br>
-                        <p>
+                    </div>
+                    <div class="delivery-item">
                         <h3 class="font-bold text-red-800">Ponto 2: Componentes do Design System - O time de design
                             sinalizou que os componentes de
                             nomes,
@@ -185,7 +400,6 @@
                             relacionadas ao desenvolvimento de telas e irá gerar um retrabalho para adaptação desse
                             material. O tamanho do impacto dependerá do prazo de entrega desses componentes.
                         </h3>
-                        </p>
                     </div>
                 </div>
         </main>
@@ -228,8 +442,8 @@
             return lines;
         }
 
-        const taskDistributionData = [23, 4, 6, 2, 1, 1, 10];
-        const taskDistributionLabels = ['Backlog', 'Refinamento', 'Desenvolvendo', 'Pronta para teste', 'Em teste', 'Em validação', 'Concluídas'];
+        const taskDistributionData = [23, 6, 8, 2, 1, 10];
+        const taskDistributionLabels = ['Backlog', 'Refinamento', 'Desenvolvendo', 'Pronta para teste', 'Em teste', 'Concluídas'];
         const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff', '#00A6A6', '#14A568', '#94a3b8'];
 
         const taskFlowContainer = document.getElementById('taskFlowContainer');
