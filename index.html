@@ -213,12 +213,14 @@
             <div class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Status Geral do Projeto</h2>
                 <div class="flex flex-col items-center justify-center flex-grow">
-                    <div class="w-40 h-40 rounded-full bg-green-500 flex items-center justify-center shadow-inner mb-4">
-                        <span class="text-white text-2xl font-bold text-center leading-tight">No Prazo</span>
+                    <div
+                        class="w-40 h-40 rounded-full bg-yellow-500 flex items-center justify-center shadow-inner mb-4">
+                        <span class="text-white text-2xl font-bold text-center leading-tight">Em risco</span>
                     </div>
-                    <p class="text-center text-gray-600">O desenvolvimento do projeto segue conforme o cronograma,
-                        porém, devido o atraso na entrega dos componentes do Design System, entendemos que o cronograma
-                        será impactado.</p>
+                    <p class="text-center text-gray-600">Precisamos definir um plano de ação para mitigar o atraso na
+                        entrega
+                        dos componentes do DS que irá gerar retrabalho. Teremos impacto em atividades de front
+                        para Web, iOS e Android.</p>
                 </div>
             </div>
 
@@ -309,6 +311,17 @@
                             JCR-930
                         </p>
                     </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[BFF] Montagem da FAQ -
+                            JCR-847
+                        </p>
+                    </div>
+                    <div class="delivery-item">
+                        <p class="text-left text-gray-600">[Relatórios] Disponibilizar em S3 Relatórios de Semente e
+                            Bronze - Boost Brasil e Hispana -
+                            JCR-931
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
@@ -318,50 +331,41 @@
                         <p class="text-left text-gray-600"><strong>[Backend] [BFF] - Carrossel da Home - Identificação
                                 da
                                 consultora iniciante - JCR-749</strong>
-                            <br> Status: Em teste | QA: Eleonora | 66% concluída (atraso) | Data prevista: 01/09
+                            <br> Status: Em desenvolvimento | Dev: Natasha | 66% concluída (atraso) | Data prevista:
+                            01/09
+                            <br> Motivo: Novos requisitos não previstos inicialmente foram adicionados à história
                         </p>
                     </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600 "><strong>[Relatórios] Disponibilizar em S3 Relatórios de
-                                Semente e
-                                Bronze - Boost Brasil e Hispana - JCR-931 </strong>
-                            <br> Status: Em validação | PM: Priscila | 80% concluída | Data prevista: 05/09
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[BFF] Montagem da FAQ - JCR-847</strong>
-                            <br> Status: Em desenvolvimento | Dev: Maik | 60% concluída | Data prevista: 08/09
-                        </p>
-                    </div>
-
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[WEB] Fluxo de onboarding do plano de crescimento -
                                 JCR-866</strong>
-                            <br> Status: Em desenvolvimento | Dev: Rhian | 11% concluída | Data prevista: 10/09
+                            <br> Status: Em desenvolvimento | Dev: Rhian | 18% concluída | Data prevista: 10/09
                         </p>
                     </div>
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[WEB] Redesenho do Card de Progressão -
                                 JCR-865</strong>
-                            <br> Status: Em desenvolvimento | Dev: Natasha | 11% concluída | Data prevista: 11/09
+                            <br> Status: Em desenvolvimento (pausada) | Dev: Natasha | 11% concluída | Data prevista:
+                            11/09
+                            <br> Motivo: Pausada devido desenvolvimento da atividade JCR-749
                         </p>
                     </div>
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[BFF][API] Dados do calendário de ciclos -
                                 JCR-861</strong>
-                            <br> Status: Em desenvolvimento | Dev: Maik | 0% concluída | Data prevista: 12/09
+                            <br> Status: Em desenvolvimento | Dev: Maik | 12% concluída | Data prevista: 12/09
                         </p>
                     </div>
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[Android] Redesenho do Carrossel de Progressão -
                                 JCR-829</strong>
-                            <br> Status: Em desenvolvimento | Dev: Diogo | 21% concluída | Data prevista: 18/09
+                            <br> Status: Em desenvolvimento | Dev: Diogo | 25% concluída | Data prevista: 18/09
                         </p>
                     </div>
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[Lambdas] Implementar Lambda para Processamento de
                                 Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761</strong>
-                            <br> Status: Em desenvolvimento | Dev: Paulo | 53% concluída | Data prevista: 19/09
+                            <br> Status: Em desenvolvimento | Dev: Paulo | 60% concluída | Data prevista: 19/09
                         </p>
                     </div>
                     <div class="delivery-item">
@@ -369,26 +373,42 @@
                                 JCR-870</strong>
                             <br> Status: Em desenvolvimento (pausada) | Dev: Rogério | 0% concluída | Data prevista:
                             25/09
+                            <br> Motivo: Férias do desenvolvedor
                         </p>
                     </div>
                     <div class="delivery-item">
                         <p class="text-left text-gray-600"><strong>[Lambdas] Nova lambda de atualização de Nível da
                                 Consultora
                                 de Beleza - JCR-772</strong>
-                            <br> Status: Em desenvolvimento | Dev: Leonardo | 46% concluída | Data prevista: 17/10
+                            <br> Status: Em desenvolvimento | Dev: Leonardo | 53% concluída | Data prevista: 17/10
                         </p>
                     </div>
-
                 </div>
             </div>
             <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Pontos de atenção</h2>
                 <div>
-
                     <div class="delivery-item">
-                        <h3 class="font-bold text-yellow-800">Mudança de conteúdo - Ainda estão ocorrendo
-                            ajustes de conteúdos e algumas atividades continuam sendo
-                            impactadas, mesmo que minimamente, devido essas alterações.
+                        <h3 class="font-bold text-yellow-800">A quantidade de atividades mapeadas para Android e iOS
+                            está bastante grande para apenas dois desenvolvedores, além dos atrasos de conteúdo e
+                            componentes do Design System, com isso, temos o risco de não atingir o prazo de entrega.
+                            Precisamos de apoio para garantir que os prazos sejam mantidos.
+                        </h3>
+                    </div>
+                    <div class="delivery-item">
+                        <h3 class="font-bold text-yellow-800">Referente ao Boost de Hispana, ontem o recebemos uma
+                            solicitação do time de negócio com uma mudança no escopo sobre a parametrização na
+                            frequência de
+                            Colômbia e Equador. Com isso, teremos que criar uma nova tarefa para ajustar essa
+                            parametrização.
+                        </h3>
+                    </div>
+                    <div class="delivery-item">
+                        <h3 class="font-bold text-yellow-800">Houve uma alteração no processo de alteração de tabelas, o
+                            direcionamento do time de banco é que
+                            agora as mudanças podem ser realizadas somente pelos DBAs e não mais pelos desenvolvedores,
+                            com isso, a velocidade
+                            de desenvolvimento da tarefa pode diminuir em caso de necessidade de mais alterações.
                         </h3>
                     </div>
                 </div>
@@ -399,9 +419,17 @@
 
                     <div class="delivery-item">
                         <h3 class="font-bold text-red-800">O atraso na entrega dos componentes do Design System vai
-                            gerar retrabalho em desenvolvimentos já concluídos e ajustes em atividades em
-                            desenvolvimento. Ainda não recebemos todas as informações portanto não podemos medir o
-                            tamanho do impacto no momento.
+                            gerar retrabalho em desenvolvimentos já concluídos e também ajustes em atividades que
+                            estão em
+                            desenvolvimento. Estamos aguardando a data que o time do DS irá liberar os componentes e
+                            informações para medir o
+                            tamanho do impacto.
+                        </h3>
+                    </div>
+                    <div class="delivery-item">
+                        <h3 class="font-bold text-red-800">Desenvolvedores perdendo acesso ao Google sem qualquer aviso,
+                            gerando impacto no desenvolvimento de algumas tarefas até que o acesso seja novamente
+                            liberado.
                         </h3>
                     </div>
                 </div>
@@ -428,8 +456,8 @@
             }
         };
 
-        const taskDistributionData = [23, 6, 8, 1, 1, 11];
-        const taskDistributionLabels = ['Backlog', 'Refinamento', 'Desenvolvendo', 'Em teste', 'Em validação', 'Concluídas'];
+        const taskDistributionData = [20, 9, 1, 7, 1, 13];
+        const taskDistributionLabels = ['Backlog', 'Refinamento', 'Pronta para desenvolvimento', 'Desenvolvendo', 'Em teste', 'Concluídas'];
         const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff'];
 
         const taskFlowContainer = document.getElementById('taskFlowContainer');
