@@ -2,569 +2,710 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infográfico de Status do Projeto</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infográfico de Status do Projeto</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background-color: #f0f4f8;
+    }
 
-        .chart-container {
-            position: relative;
-            width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .chart-container {
+      position: relative;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        .delivery-item {
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 1rem;
-            margin-bottom: 1rem;
-        }
+    .delivery-item {
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+    }
 
-        .delivery-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+    .delivery-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
 
-        /* Estilos para impressão */
-        @media print {
-            body {
-                background-color: white !important;
-                color: black !important;
-                font-size: 12pt;
-                line-height: 1.4;
-            }
+    /* Estilos para impressão */
+    @media print {
+      body {
+        background-color: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
+      }
 
-            .container {
-                max-width: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
+      .container {
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
 
-            .bg-white {
-                background-color: white !important;
-                border: 1px solid #e5e7eb !important;
-                page-break-inside: avoid;
-                break-inside: avoid;
-                width: 100% !important;
-                box-sizing: border-box !important;
-            }
+      .bg-white {
+        background-color: white !important;
+        border: 1px solid #e5e7eb !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
 
-            .shadow-lg {
-                box-shadow: none !important;
-                border: 1px solid #d1d5db !important;
-            }
+      .shadow-lg {
+        box-shadow: none !important;
+        border: 1px solid #d1d5db !important;
+      }
 
-            .rounded-xl {
-                border-radius: 8px !important;
-            }
+      .rounded-xl {
+        border-radius: 8px !important;
+      }
 
-            .text-gray-800 {
-                color: black !important;
-            }
+      .text-gray-800 {
+        color: black !important;
+      }
 
-            .text-gray-600 {
-                color: #374151 !important;
-            }
+      .text-gray-600 {
+        color: #374151 !important;
+      }
 
-            .text-gray-700 {
-                color: #1f2937 !important;
-            }
+      .text-gray-700 {
+        color: #1f2937 !important;
+      }
 
-            .text-white {
-                color: white !important;
-            }
+      .text-white {
+        color: white !important;
+      }
 
-            .bg-green-500 {
-                background-color: #10b981 !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+      .bg-green-500 {
+        background-color: #10b981 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
-            .bg-teal-custom {
-                background-color: #00A6A6 !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+      .bg-teal-custom {
+        background-color: #00a6a6 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
-            .text-teal-custom {
-                color: #00A6A6 !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+      .text-teal-custom {
+        color: #00a6a6 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
-            .text-red-800 {
-                color: #991b1b !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
+      .text-red-800 {
+        color: #991b1b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
 
-            /* Garantir que os gráficos sejam visíveis e centralizados */
-            canvas {
-                max-width: 100% !important;
-                height: auto !important;
-                display: block !important;
-                margin: 0 auto !important;
-            }
+      /* Garantir que os gráficos sejam visíveis e centralizados */
+      canvas {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+      }
 
-            .chart-container {
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-                width: 100% !important;
-                height: 200px !important;
-                margin: 0 auto !important;
-            }
+      .chart-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 200px !important;
+        margin: 0 auto !important;
+      }
 
-            /* Ajustar espaçamentos para impressão */
-            .p-6 {
-                padding: 1rem !important;
-            }
+      /* Ajustar espaçamentos para impressão */
+      .p-6 {
+        padding: 1rem !important;
+      }
 
-            .mb-4 {
-                margin-bottom: 0.5rem !important;
-            }
+      .mb-4 {
+        margin-bottom: 0.5rem !important;
+      }
 
-            .mb-6 {
-                margin-bottom: 0.75rem !important;
-            }
+      .mb-6 {
+        margin-bottom: 0.75rem !important;
+      }
 
-            .mb-10 {
-                margin-bottom: 1rem !important;
-            }
+      .mb-10 {
+        margin-bottom: 1rem !important;
+      }
 
-            .gap-8 {
-                gap: 1rem !important;
-            }
+      .gap-8 {
+        gap: 1rem !important;
+      }
 
-            /* Garantir que o grid funcione na impressão */
-            .grid {
-                display: block !important;
-            }
+      /* Garantir que o grid funcione na impressão */
+      .grid {
+        display: block !important;
+      }
 
-            .grid>div {
-                display: block !important;
-                width: 100% !important;
-                margin-bottom: 1rem !important;
-            }
+      .grid>div {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+      }
 
-            /* Manter as linhas de separação */
-            .delivery-item {
-                border-bottom: 1px solid #d1d5db !important;
-            }
+      /* Manter as linhas de separação */
+      .delivery-item {
+        border-bottom: 1px solid #d1d5db !important;
+      }
 
-            /* Ajustar o cabeçalho */
-            header {
-                page-break-after: avoid;
-                break-after: avoid;
-                margin-top: 2rem !important;
-                padding-top: 1rem !important;
-            }
+      /* Ajustar o cabeçalho */
+      header {
+        page-break-after: avoid;
+        break-after: avoid;
+        margin-top: 2rem !important;
+        padding-top: 1rem !important;
+      }
 
-            header h1 {
-                margin-bottom: 1.5rem !important;
-            }
+      header h1 {
+        margin-bottom: 1.5rem !important;
+      }
 
-            header p {
-                margin-top: 1.5rem !important;
-            }
+      header p {
+        margin-top: 1.5rem !important;
+      }
 
-            h1,
-            h2,
-            h3 {
-                page-break-after: avoid;
-                break-after: avoid;
-            }
+      h1,
+      h2,
+      h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
 
-            /* Centralizar conteúdo dos boxes de gráficos */
-            .bg-white>h2 {
-                text-align: center !important;
-                margin-bottom: 1rem !important;
-            }
+      /* Centralizar conteúdo dos boxes de gráficos */
+      .bg-white>h2 {
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+      }
 
-            .bg-white>p {
-                text-align: center !important;
-                margin-top: 1rem !important;
-            }
-
-        }
-    </style>
+      .bg-white>p {
+        text-align: center !important;
+        margin-top: 1rem !important;
+      }
+    }
+  </style>
 </head>
 
 <body class="text-gray-800">
+  <div class="container mx-auto p-4 md:p-8">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold text-teal-custom">
+        Status Report: Novo Plano de Crescimento
+      </h1>
+      <p class="text-lg text-gray-600 mt-2">
+        Atualizado em: 16 de Setembro de 2025 | Squad: Crescimento & Retenção
+      </p>
+    </header>
 
-    <div class="container mx-auto p-4 md:p-8">
-        <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-teal-custom">Status Report: Novo Plano de Crescimento</h1>
-            <p class="text-lg text-gray-600 mt-2">Atualizado em: 09 de Setembro de 2025 | Squad: Crescimento & Retenção
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Status Geral do Projeto
+        </h2>
+        <div class="flex flex-col items-center justify-center flex-grow">
+          <div class="w-40 h-40 rounded-full bg-yellow-500 flex items-center justify-center shadow-inner mb-4">
+            <span class="text-white text-2xl font-bold text-center leading-tight">Em risco</span>
+          </div>
+          <p class="text-center text-gray-600">
+            As alterações de escopo e atrasos na entrega dos componentes já causaram impacto em atividades que já haviam
+            sido
+            desenvolvidas e em outras que estão em desenvolvimento.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Conclusão por Atividades
+        </h2>
+        <div class="chart-container h-64 md:h-56">
+          <canvas id="taskCompletionChart"></canvas>
+        </div>
+        <p id="taskCompletionSummary" class="mt-4 text-center text-gray-600">
+          Até o momento temos x atividades mapeadas, x foram concluídas,
+          representando um avanço de x% no escopo total mapeado até o momento.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Progresso do Cronograma
+        </h2>
+        <div class="chart-container h-64 md:h-56">
+          <canvas id="timelineCompletionChart"></canvas>
+        </div>
+        <p id="timelineCompletionSummary" class="mt-4 text-center text-gray-600">
+          38.9% do tempo total do projeto já decorreu, alinhado com o
+          progresso atual das entregas.
+        </p>
+      </div>
+
+      <div class="md:col-span-2 lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Fluxo de Trabalho do Projeto
+        </h2>
+        <p class="text-center text-gray-600 mb-6">
+          Este fluxo mostra a quantidade de atividades em cada estágio do
+          projeto, da concepção à conclusão.
+        </p>
+        <div id="taskFlowContainer" class="flex flex-wrap items-center justify-center md:justify-start gap-4"></div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Atividades concluídas
+        </h2>
+        <div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              (Boost) Configuração no motor - Receber o indicador de
+              Performance - JCR-672
             </p>
-        </header>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              (Boost) [Lambda 1] Criar lambda para consumir API do CMM,
+              filtrando a árvore de estrutura comercial - JCR-708
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              (Boost) [Lambda 2] Lambda para identificar a CB dentro do
+              período (parâmetro para cada país) - considerar tabelas -
+              JCR-671
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              (Boost) [Lambda 3] Realizar a classificação da CB de acordo com
+              sua atividade - JCR-709
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              (Boost) [Relatórios] Disponibilizar Relatórios de Semente e
+              Bronze - Boost Brasil e Hispana - JCR-811
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              Disponibilizar todas as Cbs que migraram de nível no ciclo em
+              uma tabela do banco de dados para CDC do Bricks - JCR-673
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Backend] [BFF] [API] -Buscar e Exibir Informações de Nível da
+              Consultora via API e BFF - JCR-742
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              Desenvolvimento modelagem de banco de dados - JCR-733
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [IOS] Fluxo de onboarding do plano de crescimento - JCR-856
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Lambdas] Nova lambda de busca de configuração - JCR-753
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Android] Fluxo de onboarding do plano de crescimento - JCR-839
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Lambdas] Nova lambda para enviar as mensagens do KAFKA para o
+              SNS - JCR-930
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [BFF] Montagem da FAQ - JCR-847
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Relatórios] Disponibilizar em S3 Relatórios de Semente e Bronze
+              - Boost Brasil e Hispana - JCR-931
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [Backend] [BFF] - Carrossel da Home - Identificação da
+              consultora iniciante - JCR-749
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              [AJUSTE - Relatórios] Boost frequência Brasil e Hispana -
+              Mudança na regra de frequência para Colômbia e Equador -
+              JCR-1022
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Próximas entregas
+        </h2>
+        <div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[WEB] Fluxo de onboarding do plano de crescimento -
+                JCR-866</strong>
+              <br />
+              Status: Em teste | QA: Eleonora | 70% concluída (atraso)
+              | Data prevista: 10/09 | <br> Motivo: Atrasada devido à dependência
+              do Design System e de outras atividades, como, por exemplo,
+              alterações no Figma.
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[WEB] Redesenho do Card de Progressão - JCR-865</strong>
+              <br />
+              Status: Em desenvolvimento | Dev: Natasha | 31%
+              concluída (atraso) | Data prevista: 11/09 <br />
+              Motivo: Atraso devido ao desenvolvimento da atividade JCR-749.
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[BFF][API] Dados do calendário de ciclos - JCR-861</strong>
+              <br />
+              Status: Em teste | QA: Eleonora | 90% concluída (atraso)
+              | Data prevista: 12/09 <br>
+              Motivo: Atraso devido outras atividades em teste
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[Android] Redesenho do Carrossel de Progressão -
+                JCR-829</strong>
+              <br />
+              Status: Pronto para teste | QA: Eleonora | 81% concluída | Data
+              prevista: 18/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[Lambdas] Implementar Lambda para Processamento de
+                Indicadores e Reenquadramento de Nível (enriquecimento de
+                dados) - JCR-761</strong>
+              <br />
+              Status: Em teste | QA: Eleonora | 93% concluída | Data prevista:
+              19/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[iOS] Redesenho do Carrossel de Progressão - JCR-870</strong>
+              <br />
+              Status: Pronta para teste | QA: Eleonora | 66% concluída | Data
+              prevista: 25/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[Lambdas] Nova lambda de atualização de Nível da Consultora
+                de Beleza - JCR-772</strong>
+              <br />
+              Status: Em teste | QA: Eleonora | 81% concluída | Data
+              prevista: 17/10
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[Android] Tela do Plano - Detalhamento - JCR-850</strong>
+              <br />
+              Status: Em desenvolvimento | Dev: Diogo | 0% concluída | Data
+              prevista: 23/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[iOS] Tela do Plano - Detalhamento - JCR-879</strong>
+              <br />
+              Status: Em desenvolvimento | Dev: Rogério | 0% concluída | Data
+              prevista: 26/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[WEB] Telas da FAQ - JCR-867</strong>
+              <br />
+              Status: Em desenvolvimento | Dev: Rhian | 61% concluída | Data
+              prevista: 18/09
+            </p>
+          </div>
+          <div class="delivery-item">
+            <p class="text-left text-gray-600">
+              <strong>[BFF] Carrossel da Home - Refactoring para trazer dados de ventana e ciclos para CBs Iniciantes -
+                JCR-1194</strong>
+              <br />
+              Status: Em desenvolvimento | Dev: Maik | 50% concluída | Data
+              prevista: 17/09
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Pontos de atenção
+        </h2>
+        <div>
+          <div class="delivery-item">
+            <h3 class="font-bold text-yellow-800">
+              Estamos aguardando a aprovação do orçamento adicional enviado na semana passada para que o time passe a
+              atuar em overtime afim de viabilizar a entrega na data acordada no início do projeto. Essa necessidade
+              surgiu devido a alterações de escopo durante o projeto e atrasos em atividades mapeadas como mandatórias
+              para o cumprimento dos prazos, conforme mencionado nos pontos abaixo.
+            </h3>
+          </div>
+          <div class="delivery-item">
+            <h3 class="font-bold text-yellow-800">
+              Referente ao Boost de Hispana, dia 04/09 recebemos uma solicitação
+              do time de negócio com uma mudança no escopo sobre a
+              parametrização na frequência de Colômbia e Equador. Com isso,
+              teremos que criar uma nova tarefa para ajustar essa
+              parametrização. O desenvolvedor precisará de mais tempo para realizar esta alteração. <br>Nova mudança em
+              escopo: de
+              acordo com e-mail formalizado em 09/09, por Marília Sargaço,
+              (steakholder), teremos que desabilitar o
+              boost da Colômbia para que as consultoras Plata não virem Oro.
+              De acordo com o time de negócio, essa mudança está acontecendo
+              pois o país fechou o primeiro período do ano com um mix Oro+
+              acima do previsto e menos CBs caindo de nível. Dessa forma, o
+              shape já está mais elevado nos níveis superiores e existe um
+              risco de descalibrar a comissão média do país. Bronce para Plata
+              - mantém / Plata para Oro - não / Oro para Zafiro - mantém
+            </h3>
+          </div>
+          <div class="delivery-item">
+            <h3 class="font-bold text-yellow-800">
+              Manutenção dos nomes atuais em Hispana, adicionando Diamante
+              Azul como último nível, priorizando evitar impactos de change
+              management no lançamento do Novo Plano de Crescimento. Cenário
+              de níveis validado • BR: Cristal, Bronze, Prata, Ouro, Diamante,
+              Diamante+ • Hispana: Bronze, Prata, Ouro, Zafiro, Diamante,
+              Diamante Azul É importante reforçar que, dado que o escopo do
+              projeto já havia sido fechado e as entregas de desenvolvimento
+              estão em andamento, essas alterações introduzem retrabalhos não
+              previstos inicialmente. Isso significa incremento de esforço em
+              paralelo ao escopo já comprometido. Para assegurar a data de
+              Go-Live em C012026 para todos os países, será necessário adotar
+              um plano de mitigação.
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Problemas e Impedimentos
+        </h2>
+        <div>
+          <div class="delivery-item">
+            <h3 class="font-bold text-red-800">
+              O atraso na entrega dos componentes do Design System vai gerar
+              retrabalho em desenvolvimentos já concluídos e também ajustes em
+              atividades que estão em desenvolvimento. Estamos aguardando a
+              data que o time do DS irá liberar os componentes e informações
+              para medir o tamanho do impacto.
+            </h3>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <script>
+    const tooltipTitleCallback = {
+      plugins: {
+        tooltip: {
+          callbacks: {
+            title: function (tooltipItems) {
+              const item = tooltipItems[0];
+              let label = item.chart.data.labels[item.dataIndex];
+              if (Array.isArray(label)) {
+                return label.join(" ");
+              } else {
+                return label;
+              }
+            },
+          },
+        },
+      },
+    };
 
-            <div class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Status Geral do Projeto</h2>
-                <div class="flex flex-col items-center justify-center flex-grow">
-                    <div
-                        class="w-40 h-40 rounded-full bg-yellow-500 flex items-center justify-center shadow-inner mb-4">
-                        <span class="text-white text-2xl font-bold text-center leading-tight">Em risco</span>
-                    </div>
-                    <p class="text-center text-gray-600">Precisamos definir um plano de ação para mitigar o atraso na
-                        entrega
-                        dos componentes do DS que irá gerar retrabalho. Teremos impacto em atividades de front
-                        para Web, iOS e Android.</p>
-                </div>
-            </div>
+    const taskDistributionData = [16, 9, 9, 5, 2, 4, 16];
+    const taskDistributionLabels = [
+      "Backlog",
+      "Refinamento",
+      "Pronta para desenvolvimento",
+      "Desenvolvendo",
+      "Pronta para teste",
+      "Em teste",
+      "Concluídas",
+    ];
+    const taskColors = [
+      "#E84855",
+      "#F28F3B",
+      "#FFC759",
+      "#4D9DE0",
+      "#C5D86D",
+      "#2a7fff",
+      "#ffff00"
+    ];
 
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Conclusão por Atividades</h2>
-                <div class="chart-container h-64 md:h-56">
-                    <canvas id="taskCompletionChart"></canvas>
-                </div>
-                <p id="taskCompletionSummary" class="mt-4 text-center text-gray-600">Até o momento temos x atividades
-                    mapeadas, x foram concluídas, representando um avanço de x% no escopo total mapeado até o
-                    momento.</p>
-            </div>
+    const taskFlowContainer = document.getElementById("taskFlowContainer");
+    taskDistributionLabels.forEach((label, index) => {
+      const count = taskDistributionData[index];
+      const color = taskColors[index];
 
-            <div class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Progresso do Cronograma</h2>
-                <div class="chart-container h-64 md:h-56">
-                    <canvas id="timelineCompletionChart"></canvas>
-                </div>
-                <p id="timelineCompletionSummary" class="mt-4 text-center text-gray-600">38.9% do tempo total do projeto
-                    já decorreu, alinhado com o progresso atual das entregas.</p>
-            </div>
-
-            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Fluxo de Trabalho do Projeto</h2>
-                <p class="text-center text-gray-600 mb-6">Este fluxo mostra a quantidade de atividades em cada estágio
-                    do projeto, da concepção à conclusão.</p>
-                <div id="taskFlowContainer" class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                </div>
-            </div>
-            <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Atividades concluídas</h2>
-                <div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">(Boost) Configuração no motor - Receber o indicador de
-                            Performance - JCR-672
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">(Boost) [Lambda 1] Criar lambda para consumir API do CMM,
-                            filtrando a árvore de estrutura comercial - JCR-708
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">(Boost) [Lambda 2] Lambda para identificar a CB dentro do
-                            período (parâmetro para cada país) - considerar tabelas - JCR-671
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">(Boost) [Lambda 3] Realizar a classificação da CB de acordo
-                            com sua atividade - JCR-709
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">(Boost) [Relatórios] Disponibilizar Relatórios de Semente e
-                            Bronze - Boost Brasil e Hispana - JCR-811
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">Disponibilizar todas as Cbs que migraram de nível no ciclo
-                            em uma tabela do banco de dados para CDC do Bricks - JCR-673
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Backend] [BFF] [API] -Buscar e Exibir Informações de Nível
-                            da Consultora via API e BFF - JCR-742
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">Desenvolvimento modelagem de banco de dados - JCR-733
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[IOS] Fluxo de onboarding do plano de crescimento - JCR-856
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Lambdas] Nova lambda de busca de configuração - JCR-753
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Android] Fluxo de onboarding do plano de crescimento -
-                            JCR-839
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Lambdas] Nova lambda para enviar as mensagens do KAFKA para
-                            o SNS -
-                            JCR-930
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[BFF] Montagem da FAQ -
-                            JCR-847
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600">[Relatórios] Disponibilizar em S3 Relatórios de Semente e
-                            Bronze - Boost Brasil e Hispana -
-                            JCR-931
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Próximas entregas</h2>
-                <div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[Backend] [BFF] - Carrossel da Home - Identificação
-                                da
-                                consultora iniciante - JCR-749</strong>
-                            <br> Status: Em desenvolvimento | Dev: Natasha | 66% concluída (atraso) | Data prevista:
-                            01/09
-                            <br> Motivo: Novos requisitos não previstos inicialmente foram adicionados à história
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[WEB] Fluxo de onboarding do plano de crescimento -
-                                JCR-866</strong>
-                            <br> Status: Em desenvolvimento | Dev: Rhian | 18% concluída | Data prevista: 10/09
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[WEB] Redesenho do Card de Progressão -
-                                JCR-865</strong>
-                            <br> Status: Em desenvolvimento (pausada) | Dev: Natasha | 11% concluída | Data prevista:
-                            11/09
-                            <br> Motivo: Pausada devido desenvolvimento da atividade JCR-749
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[BFF][API] Dados do calendário de ciclos -
-                                JCR-861</strong>
-                            <br> Status: Em desenvolvimento | Dev: Maik | 12% concluída | Data prevista: 12/09
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[Android] Redesenho do Carrossel de Progressão -
-                                JCR-829</strong>
-                            <br> Status: Em desenvolvimento | Dev: Diogo | 25% concluída | Data prevista: 18/09
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[Lambdas] Implementar Lambda para Processamento de
-                                Indicadores e Reenquadramento de Nível (enriquecimento de dados) - JCR-761</strong>
-                            <br> Status: Em desenvolvimento | Dev: Paulo | 60% concluída | Data prevista: 19/09
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[iOS] Redesenho do Carrossel de Progressão -
-                                JCR-870</strong>
-                            <br> Status: Em desenvolvimento (pausada) | Dev: Rogério | 0% concluída | Data prevista:
-                            25/09
-                            <br> Motivo: Férias do desenvolvedor
-                        </p>
-                    </div>
-                    <div class="delivery-item">
-                        <p class="text-left text-gray-600"><strong>[Lambdas] Nova lambda de atualização de Nível da
-                                Consultora
-                                de Beleza - JCR-772</strong>
-                            <br> Status: Em desenvolvimento | Dev: Leonardo | 53% concluída | Data prevista: 17/10
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Pontos de atenção</h2>
-                <div>
-                    <div class="delivery-item">
-                        <h3 class="font-bold text-yellow-800">A quantidade de atividades mapeadas para Android e iOS
-                            está bastante grande para apenas dois desenvolvedores, além dos atrasos de conteúdo e
-                            componentes do Design System, com isso, temos o risco de não atingir o prazo de entrega.
-                            Precisamos de apoio para garantir que os prazos sejam mantidos.
-                        </h3>
-                    </div>
-                    <div class="delivery-item">
-                        <h3 class="font-bold text-yellow-800">Referente ao Boost de Hispana, ontem o recebemos uma
-                            solicitação do time de negócio com uma mudança no escopo sobre a parametrização na
-                            frequência de
-                            Colômbia e Equador. Com isso, teremos que criar uma nova tarefa para ajustar essa
-                            parametrização.
-                        </h3>
-                    </div>
-                    <div class="delivery-item">
-                        <h3 class="font-bold text-yellow-800">Houve uma alteração no processo de alteração de tabelas, o
-                            direcionamento do time de banco é que
-                            agora as mudanças podem ser realizadas somente pelos DBAs e não mais pelos desenvolvedores,
-                            com isso, a velocidade
-                            de desenvolvimento da tarefa pode diminuir em caso de necessidade de mais alterações.
-                        </h3>
-                    </div>
-                </div>
-            </div>
-            <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-center text-gray-700 mb-4">Problemas e Impedimentos</h2>
-                <div>
-
-                    <div class="delivery-item">
-                        <h3 class="font-bold text-red-800">O atraso na entrega dos componentes do Design System vai
-                            gerar retrabalho em desenvolvimentos já concluídos e também ajustes em atividades que
-                            estão em
-                            desenvolvimento. Estamos aguardando a data que o time do DS irá liberar os componentes e
-                            informações para medir o
-                            tamanho do impacto.
-                        </h3>
-                    </div>
-                    <div class="delivery-item">
-                        <h3 class="font-bold text-red-800">Desenvolvedores perdendo acesso ao Google sem qualquer aviso,
-                            gerando impacto no desenvolvimento de algumas tarefas até que o acesso seja novamente
-                            liberado.
-                        </h3>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script>
-        const tooltipTitleCallback = {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: function (tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            } else {
-                                return label;
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        const taskDistributionData = [20, 9, 1, 7, 1, 13];
-        const taskDistributionLabels = ['Backlog', 'Refinamento', 'Pronta para desenvolvimento', 'Desenvolvendo', 'Em teste', 'Concluídas'];
-        const taskColors = ['#E84855', '#F28F3B', '#FFC759', '#4D9DE0', '#C5D86D', '#2a7fff'];
-
-        const taskFlowContainer = document.getElementById('taskFlowContainer');
-        taskDistributionLabels.forEach((label, index) => {
-            const count = taskDistributionData[index];
-            const color = taskColors[index];
-
-            const flowItem = document.createElement('div');
-            flowItem.className = `flex flex-col items-center p-4 rounded-xl shadow-md`;
-            flowItem.style.backgroundColor = 'white';
-            flowItem.style.border = `2px solid ${color}`;
-            flowItem.innerHTML = `
+      const flowItem = document.createElement("div");
+      flowItem.className = `flex flex-col items-center p-4 rounded-xl shadow-md`;
+      flowItem.style.backgroundColor = "white";
+      flowItem.style.border = `2px solid ${color}`;
+      flowItem.innerHTML = `
                 <div class="text-xs font-semibold text-gray-600 mb-1">${label}</div>
                 <div class="text-3xl font-bold text-gray-800">${count}</div>
             `;
-            taskFlowContainer.appendChild(flowItem);
+      taskFlowContainer.appendChild(flowItem);
 
-            if (index < taskDistributionLabels.length - 1) {
-                const arrow = document.createElement('div');
-                arrow.className = `text-2xl font-bold text-gray-400 flex items-center justify-center h-full px-2`;
-                arrow.innerHTML = '&rarr;';
-                taskFlowContainer.appendChild(arrow);
-            }
-        });
+      if (index < taskDistributionLabels.length - 1) {
+        const arrow = document.createElement("div");
+        arrow.className = `text-2xl font-bold text-gray-400 flex items-center justify-center h-full px-2`;
+        arrow.innerHTML = "&rarr;";
+        taskFlowContainer.appendChild(arrow);
+      }
+    });
 
-        const totalTasks = taskDistributionData.reduce((sum, value) => sum + value, 0);
-        const developingTasks = taskDistributionData[taskDistributionLabels.indexOf('Desenvolvendo')];
-        const completedTasks = taskDistributionData[taskDistributionLabels.indexOf('Concluídas')];
-        const pendingTasks = totalTasks - completedTasks - developingTasks;
-        const completionPercentage = ((completedTasks / (totalTasks)) * 100).toFixed(1);
+    const totalTasks = taskDistributionData.reduce(
+      (sum, value) => sum + value,
+      0
+    );
+    const developingTasks =
+      taskDistributionData[taskDistributionLabels.indexOf("Desenvolvendo")];
+    const completedTasks =
+      taskDistributionData[taskDistributionLabels.indexOf("Concluídas")];
+    const pendingTasks = totalTasks - completedTasks - developingTasks;
+    const completionPercentage = (
+      (completedTasks / totalTasks) *
+      100
+    ).toFixed(1);
 
-        document.getElementById('taskCompletionSummary').innerText = `Temos ${totalTasks} atividades mapeadas, ${developingTasks} estão em desenvolvimento e ${completedTasks} foram concluídas, representando um avanço de ${completionPercentage}% no escopo mapeado até o momento.`;
+    document.getElementById(
+      "taskCompletionSummary"
+    ).innerText = `Temos ${totalTasks} atividades mapeadas, ${developingTasks} estão em desenvolvimento e ${completedTasks} foram concluídas, representando um avanço de ${completionPercentage}% no escopo mapeado até o momento.`;
 
-        const taskCompletionCtx = document.getElementById('taskCompletionChart').getContext('2d');
-        new Chart(taskCompletionCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Concluídas', 'Em andamento', 'Pendentes'],
-                datasets: [{
-                    data: [completedTasks, developingTasks, pendingTasks],
-                    backgroundColor: ['#00A6A6', '#f67828', '#e5e7eb'],
-                    borderColor: ['#ffffff'],
-                    borderWidth: 4,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    tooltip: tooltipTitleCallback.plugins.tooltip
-                }
-            }
-        });
+    const taskCompletionCtx = document
+      .getElementById("taskCompletionChart")
+      .getContext("2d");
+    new Chart(taskCompletionCtx, {
+      type: "doughnut",
+      data: {
+        labels: ["Concluídas", "Em andamento", "Pendentes"],
+        datasets: [
+          {
+            data: [completedTasks, developingTasks, pendingTasks],
+            backgroundColor: ["#00A6A6", "#f67828", "#e5e7eb"],
+            borderColor: ["#ffffff"],
+            borderWidth: 4,
+            hoverOffset: 8,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: "70%",
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: tooltipTitleCallback.plugins.tooltip,
+        },
+      },
+    });
 
-        const startDate = new Date('2025-07-21');
-        const endDate = new Date('2025-12-05');
-        const today = new Date();
+    const startDate = new Date("2025-07-21");
+    const endDate = new Date("2025-12-05");
+    const today = new Date();
 
-        const totalDurationMs = endDate - startDate;
-        const elapsedDurationMs = today - startDate;
+    const totalDurationMs = endDate - startDate;
+    const elapsedDurationMs = today - startDate;
 
-        const totalDurationDays = totalDurationMs / (1000 * 60 * 60 * 24);
-        const elapsedDurationDays = elapsedDurationMs / (1000 * 60 * 60 * 24);
+    const totalDurationDays = totalDurationMs / (1000 * 60 * 60 * 24);
+    const elapsedDurationDays = elapsedDurationMs / (1000 * 60 * 60 * 24);
 
-        let timelineElapsed = Math.max(0, elapsedDurationDays);
-        let timelineRemaining = Math.max(0, totalDurationDays - elapsedDurationDays);
+    let timelineElapsed = Math.max(0, elapsedDurationDays);
+    let timelineRemaining = Math.max(
+      0,
+      totalDurationDays - elapsedDurationDays
+    );
 
-        if (today > endDate) {
-            timelineElapsed = totalDurationDays;
-            timelineRemaining = 0;
-        }
+    if (today > endDate) {
+      timelineElapsed = totalDurationDays;
+      timelineRemaining = 0;
+    }
 
-        const timelineCompletionPercentage = ((timelineElapsed / totalDurationDays) * 100).toFixed(1);
+    const timelineCompletionPercentage = (
+      (timelineElapsed / totalDurationDays) *
+      100
+    ).toFixed(1);
 
-        document.getElementById('timelineCompletionSummary').innerText = `${timelineCompletionPercentage}% do tempo total do projeto já decorreu, alinhado com o progresso atual das entregas.`;
+    document.getElementById(
+      "timelineCompletionSummary"
+    ).innerText = `${timelineCompletionPercentage}% do tempo total do projeto já decorreu, alinhado com o progresso atual das entregas.`;
 
-        const timelineCompletionCtx = document.getElementById('timelineCompletionChart').getContext('2d');
-        new Chart(timelineCompletionCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Decorrido', 'Restante'],
-                datasets: [{
-                    data: [timelineElapsed, timelineRemaining],
-                    backgroundColor: ['#F28F3B', '#e5e7eb'],
-                    borderColor: ['#ffffff'],
-                    borderWidth: 4,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '70%',
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    tooltip: tooltipTitleCallback.plugins.tooltip
-                }
-            }
-        });
-    </script>
+    const timelineCompletionCtx = document
+      .getElementById("timelineCompletionChart")
+      .getContext("2d");
+    new Chart(timelineCompletionCtx, {
+      type: "doughnut",
+      data: {
+        labels: ["Decorrido", "Restante"],
+        datasets: [
+          {
+            data: [timelineElapsed, timelineRemaining],
+            backgroundColor: ["#F28F3B", "#e5e7eb"],
+            borderColor: ["#ffffff"],
+            borderWidth: 4,
+            hoverOffset: 8,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: "70%",
+        plugins: {
+          legend: {
+            position: "bottom",
+          },
+          tooltip: tooltipTitleCallback.plugins.tooltip,
+        },
+      },
+    });
+  </script>
 </body>
 
 </html>
