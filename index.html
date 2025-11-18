@@ -135,6 +135,61 @@
       color: var(--text-muted);
     }
 
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .status-table thead th {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding-bottom: 0.75rem;
+    }
+
+    .status-table tbody td {
+      padding: 0.85rem 0;
+      border-top: 1px solid var(--border-color);
+      vertical-align: top;
+    }
+
+    .status-category {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 999px;
+      padding: 0.2rem 0.75rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .status-success {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+    }
+
+    .status-warning {
+      background: rgba(250, 204, 21, 0.15);
+      color: #facc15;
+    }
+
+    .status-danger {
+      background: rgba(248, 113, 113, 0.18);
+      color: #f87171;
+    }
+
+    .status-note {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
     /* Estilos para impressão */
     @media print {
       body {
@@ -306,7 +361,7 @@
         Status Report: Novo Plano de Crescimento
       </h1>
       <p class="text-lg text-gray-600 mt-2">
-        Atualizado em: 11 de Novembro de 2025 | Squad: Crescimento & Retenção
+        Atualizado em: 18 de Novembro de 2025 | Squad: Crescimento & Retenção
       </p>
     </header>
 
@@ -320,8 +375,8 @@
             <span class="text-white text-2xl font-bold text-center leading-tight">Em risco</span>
           </div>
           <p class="text-center text-gray-600">
-            Os últimos desenvolvimentos ainda estão sendo realizados, especialmente de mudança de escopo. Estamos com o
-            cronograma apertado devido ao início dos testes com KUs. O risco do projeto se mantém.
+            Os últimos desenvolvimentos estão em fase de teste e já iniciamos as correções dos itens
+            levantados pelos KUs.
         </div>
       </div>
 
@@ -362,6 +417,323 @@
         <div id="taskFlowContainer" class="flex flex-wrap items-center justify-center md:justify-start gap-4"></div>
       </div>
       <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Testes Key Users
+        </h2>
+        <p class="text-center text-gray-600 mb-6">
+          Status consolidado dos cenários testados pelos Key Users nos três países priorizados.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="status-table">
+            <thead>
+              <tr>
+                <th class="text-left">Categoria</th>
+                <th class="text-left">Peru</th>
+                <th class="text-left">México</th>
+                <th class="text-left">Brasil</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 1</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 2</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">❌ Não realizado</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 3</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 4</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 5</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: WEB - Nível 6</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 1</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 2</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 3</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 4</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 5</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-danger">❌ Não realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: ANDROID - Nível 6</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 1</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 2</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 3</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 4</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 5</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Plataforma: iOS - Nível 6</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="status-category">Validação de Motor (Níveis)</td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-warning">🟡 Em andamento</span>
+                    <span class="status-note">Motivo: Retorno até 18h de BR</span>
+                  </div>
+                </td>
+                <td><span class="status-badge status-success">✅ Realizado</span></td>
+              </tr>
+              <tr>
+                <td class="status-category">Validação de Motor (Diamante + / Azul)</td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Preparando evidências</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="flex flex-col">
+                    <span class="status-badge status-danger">🔴 Pendente</span>
+                    <span class="status-note">Motivo: Tecnologia preparando evidências</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Ajustes Testes Key Users
+        </h2>
+        <p class="text-center text-gray-600 mb-6">
+          Resumo dos erros reportados e dos status dos ajustes em andamento por praça.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2 text-center">Brasil</h3>
+            <p class="text-sm uppercase tracking-wide text-gray-500 text-center">Erros encontrados</p>
+            <p class="text-4xl font-bold text-teal-custom text-center mb-4">3</p>
+            <p class="text-sm text-gray-400 text-center">Status: <span class="text-red-400 font-semibold">3
+                comprometidos</span></p>
+          </div>
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2 text-center">Peru</h3>
+            <p class="text-sm uppercase tracking-wide text-gray-500 text-center">Erros encontrados</p>
+            <p class="text-4xl font-bold text-teal-custom text-center mb-4">8</p>
+            <p class="text-sm text-gray-400 text-center">Status: <span class="text-red-400 font-semibold">7
+                comprometidos</span>, <span class="text-yellow-300 font-semibold">1 desenvolvendo</span></p>
+          </div>
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4">
+            <h3 class="text-lg font-semibold text-gray-700 mb-2 text-center">México</h3>
+            <p class="text-sm uppercase tracking-wide text-gray-500 text-center">Erros encontrados</p>
+            <p class="text-4xl font-bold text-teal-custom text-center mb-4">1</p>
+            <p class="text-sm text-gray-400 text-center">Status: <span class="text-red-400 font-semibold">1
+                comprometido</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6" style="display: none;">
         <details id="completedActivities" class="group">
           <summary class="list-none cursor-pointer select-none">
             <div class="flex items-center justify-between">
@@ -732,7 +1104,7 @@
           </div>
         </details>
       </div>
-      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6" style="display: none;">
         <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
           Próximas entregas
         </h2>
@@ -847,35 +1219,18 @@
         <div>
           <div class="delivery-item">
             <h3 class="font-semibold text-yellow-800">
-              Continuamos com risco no período dos testes devido as tarefas de alteração de
-              escopo
-              ainda pendentes, também precisamos concluir atividades de ajuste de conteúdo conforme novas traduções
-              recebebidas. Tivemos que criar novas tarefas para esses ajustes, o que fez o nosso backlog
-              aumentar consideravelmente. Observação: Na Tela de vantagens por nível a estrutura de layout deve ser
-              mantida, conforme formalizado por email. A caixa cinza onde há o detalhamento do próximo nível deve estar
-              com linguagem padrão, ou seja, não devemos ter um conteúdo diferente para cada país (também formalizado
-              por
-              email).
+              Já iniciamos as correções dos erros levantados pelos Key Users, porém, identificamos que alguns níveis não
+              foram testados para Brasil, conforme material adicional criado. </h3>
+          </div>
+          <div class="delivery-item">
+            <h3 class="font-semibold text-yellow-800">
+              Ainda não recebemos a lista provisória de CBs do PE que precisarão ser migradas para o nível
+              Diamante Azul na virada do plano de crescimento, havíamos solicitado essa primeira lista até 17/11.
             </h3>
           </div>
           <div class="delivery-item">
             <h3 class="font-semibold text-yellow-800">
-              Precisamos receber as listas de CBs, especialmente BR, PE e MX, que precisarão ser migradas para o nível
-              Diamante + / Diamante Azul na virada do plano de crescimento até 17/11.
-            </h3>
-          </div>
-          <div class="delivery-item">
-            <h3 class="font-semibold text-yellow-800">
-              Iniciaremos os testes com os KUs essa semana para BR, PE e MX e entendemos que precisamos focar nos
-              ajustes
-              que
-              levantarem, porém, fica como ponto de atenção que os desenvolvimentos de mudança de escopo ainda não estão
-              completamente finalizados, o que trás um risco maior para o projeto.
-            </h3>
-          </div>
-          <div class="delivery-item">
-            <h3 class="font-semibold text-yellow-800">
-              Precisamos receber os nomes das pessoas que irão atuar no período de férias coletivas para apoiar em
+              Ainda não recebemos os nomes das pessoas que irão atuar no período de férias coletivas para apoiar em
               eventuais alinhamentos.
             </h3>
           </div>
@@ -913,7 +1268,7 @@
       displayColors: false,
     };
 
-    const taskDistributionData = [7, 6, 5, 7, 4, 69];
+    const taskDistributionData = [0, 11, 7, 10, 5, 80];
     const taskDistributionLabels = [
       "Backlog",
       "Pronta para desenvolvimento",
