@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Infográfico de Status do Projeto</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -361,414 +360,71 @@
         Status Report: Novo Plano de Crescimento
       </h1>
       <p class="text-lg text-gray-600 mt-2">
-        Atualizado em: 16 de dezembro de 2025 | Squad: Crescimento & Retenção
+        Atualizado em: 06 de janeiro de 2026 | Squad: Crescimento & Retenção
       </p>
     </header>
 
     <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="lg:col-span-1 md:col-span-2 bg-white rounded-xl shadow-lg p-6 flex flex-col justify-between">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Status Geral do Projeto
-        </h2>
-        <div class="flex flex-col items-center justify-center flex-grow">
-          <div class="w-40 h-40 rounded-full bg-green-500 flex items-center justify-center shadow-inner mb-4">
-            <span class="text-white text-2xl font-bold text-center leading-tight">2ª implantação concluída</span>
-          </div>
-          <p class="text-center text-gray-600">
-            A implantação da segunda onda de GVs do Brasil foi concluída com sucesso. Não houve nenhum incidente ou
-            problema
-            reportado e seguimos monitorando o fluxo completo. Continuamos atuando em alguns ajustes no HC e preparando
-            a
-            implantação para Perú e a terceira onda do Brasil.
-        </div>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-lg p-6">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Conclusão por Atividades
-        </h2>
-        <div class="chart-container h-64 md:h-56">
-          <canvas id="taskCompletionChart"></canvas>
-        </div>
-        <p id="taskCompletionSummary" class="mt-4 text-center text-gray-600">
-          Até o momento temos x atividades mapeadas, x foram concluídas,
-          representando um avanço de x% no escopo total mapeado até o momento.
-        </p>
-      </div>
-
-      <div class="bg-white rounded-xl shadow-lg p-6">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Progresso do Cronograma
-        </h2>
-        <div class="chart-container h-64 md:h-56">
-          <canvas id="timelineCompletionChart"></canvas>
-        </div>
-        <p id="timelineCompletionSummary" class="mt-4 text-center text-gray-600">
-          38.9% do tempo total do projeto já decorreu, alinhado com o
-          progresso atual das entregas.
-        </p>
-      </div>
-
-      <div class="md:col-span-2 lg:col-span-3 bg-white rounded-xl shadow-lg p-6" style="display: none;">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Fluxo de Trabalho do Projeto
-        </h2>
-        <p class="text-center text-gray-600 mb-6">
-          Este fluxo mostra a quantidade de atividades em cada estágio do
-          projeto, da concepção à conclusão.
-        </p>
-        <div id="taskFlowContainer" class="flex flex-wrap items-center justify-center md:justify-start gap-4"></div>
-      </div>
-
-      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Hypercare
-        </h2>
-        <p class="text-center text-gray-600 mb-6">
-          Fluxo atual das atividades em Hypercare.
-        </p>
-        <div class="flex flex-col gap-4">
-          <div class="grid grid-cols-1 sm:grid-cols-6 gap-4">
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Backlog</p>
-              <p class="text-3xl font-bold text-teal-custom">1</p>
-            </div>
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Em desenvolvimento</p>
-              <p class="text-3xl font-bold text-teal-custom">0</p>
-            </div>
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Pronta para teste</p>
-              <p class="text-3xl font-bold text-teal-custom">0</p>
-            </div>
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Em teste</p>
-              <p class="text-3xl font-bold text-teal-custom">0</p>
-            </div>
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Em validação</p>
-              <p class="text-3xl font-bold text-teal-custom">6</p>
-            </div>
-            <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 text-center">
-              <p class="text-sm text-gray-500 mb-1">Concluídos</p>
-              <p class="text-3xl font-bold text-teal-custom">4</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Backlog
-        </h2>
-        <p class="text-center text-gray-600 mb-6">
-          Veja os itens pendentes e ajustes em andamento por país.
-        </p>
-        <div class="relative">
-          <div id="backlogSlides" class="space-y-0">
-            <div class="backlog-slide rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)]">
-              <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2"><span
-                  class="text-teal-custom text-[22px]">🇧🇷</span><span class="text-[22px]">Brasil</span></h3>
-              <ul class="space-y-3 text-gray-600">
-                <li><strong>Carrossel de progressão da home</strong> — 2 ajustes | Status: ✅ Realizados</li>
-                <li><strong>Tela do Plano de crescimento - Detalhamento fase iniciante</strong> — 3 ajustes | Status: ✅
-                  Realizados</li>
-                <li><strong>Tela do Plano de crescimento - Detalhamento Diamante +</strong> — 2 ajustes | Status: 🚧 Em
-                  ajuste (1) - ❌ Desconsiderado (1)</li>
-                <li><strong>Tela de Extrato</strong> — 2 ajustes | Status: ❌ Desconsiderados</li>
-                <li><strong>Tela de vantagens por nível (iniciante)</strong> — 1 ajuste | Status: 🟡 Backlog 2026</li>
-                <li><strong>Tela de vantagens por nível (outros níveis)</strong> — 1 ajuste | Status: 🟡 Backlog 2026
-                </li>
-                <li><strong>Tela de FAQ</strong> — 1 ajuste | Status: 🟡 Backlog 2026</li>
-                <li><strong>Tela de Diamante+</strong> — 1 ajuste | Status: 🟡 Backlog 2026</li>
-              </ul>
-            </div>
-            <div
-              class="backlog-slide rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)] hidden">
-              <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2"><span
-                  class="text-teal-custom text-[22px]">🇵🇪</span><span class="text-[22px]">Perú</span></h3>
-              <ul class="space-y-3 text-gray-600">
-                <li><strong>Fluxo de onboarding do plano de crescimento</strong> — 2 ajustes | Status: ✅ Realizados</li>
-                <li><strong>Tela de FAQ</strong> — 1 ajuste | Status: ✅ Realizado</li>
-                <li><strong>Carrossel progressão na home</strong> — 7 ajustes | Status: ✅ Realizados (6) - ❌
-                  Desconsiderado (1)</li>
-                <li><strong>Tela da Home do Plano de crescimento - Detalhamento</strong> — 9 ajustes | Status: ✅
-                  Realizados (8) - 🚧 Em ajuste (1)</li>
-                <li><strong>Tela de vantagens da CB iniciante</strong> — 4 ajustes | Status: ✅ Realizados (2) - 🚧 Em
-                  ajuste (2)</li>
-                <li><strong>Tela de Extrato</strong> — 2 ajustes | Status: 🚧 Em ajuste</li>
-                <li><strong>Tela de Diamante+</strong> — 1 ajuste | Status: 🟡 Backlog 2026</li>
-              </ul>
-            </div>
-            <div
-              class="backlog-slide rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)] hidden">
-              <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2"><span
-                  class="text-teal-custom text-[22px]">🇲🇽</span><span class="text-[22px]">México</span></h3>
-              <ul class="space-y-3 text-gray-600">
-                <li><strong>Tela de FAQ</strong> — 1 ajuste | Status: ✅ Realizado</li>
-                <li><strong>Carrossel progressão na home</strong> — 9 ajustes | Status: ✅ Realizados (7) - ❌
-                  Desconsiderados (2)</li>
-                <li><strong>Tela da Home do Plano de crescimento - Detalhamento</strong> — 11 ajustes | Status: ✅
-                  Realizados (9) - 🚧 Em ajuste (2)</li>
-                <li><strong>Tela de vantagens da CB iniciante</strong> — 4 ajustes | Status: ✅ Realizados (2) - 🚧 Em
-                  ajuste (2)</li>
-                <li><strong>Tela de Extrato</strong> — 2 ajustes | Status: 🚧 Em ajuste</li>
-                <li><strong>Fluxo de onboarding do plano de crescimento</strong> — 1 ajuste | Status: 🚧 Em ajuste</li>
-                <li><strong>Tela de Diamante+</strong> — 1 ajuste | Status: 🟡 Backlog 2026</li>
-              </ul>
-            </div>
-          </div>
-          <div class="flex items-center justify-between mt-4">
-            <button id="backlogPrev"
-              class="px-4 py-2 rounded-lg border border-[rgba(148,163,184,0.35)] text-gray-300 hover:border-teal-400 hover:text-white transition">‹
-              Anterior</button>
-            <div id="backlogIndicator" class="text-gray-400 text-sm"></div>
-            <button id="backlogNext"
-              class="px-4 py-2 rounded-lg border border-[rgba(148,163,184,0.35)] text-gray-300 hover:border-teal-400 hover:text-white transition">Próximo
-              ›</button>
-          </div>
-        </div>
-      </div>
-      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
-        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
-          Testes Key Users - Grupo 2
-        </h2>
-        <p class="text-center text-gray-600 mb-6">
-          Status consolidado dos cenários testados pelos Key Users nos quatro países priorizados.
-        </p>
-        <div class="overflow-x-auto">
-          <table class="status-table">
-            <thead>
-              <tr>
-                <th class="text-left">Categoria</th>
-                <th class="text-left">Chile</th>
-                <th class="text-left">Colômbia</th>
-                <th class="text-left">Argentina</th>
-                <th class="text-left">Equador</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 1</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 2</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 3</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 4</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 5</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: WEB - Nível 6</td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 1</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 2</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 3</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-success">✅ Realizado</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 4</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 5</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: ANDROID - Nível 6</td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-                <td><span class="status-badge status-warning">🟡 Em Andamento</span><span
-                    class="status-note"><br>Motivo: Retorno até 16/12</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 1</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 2</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 3</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 4</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 5</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Plataforma: iOS - Nível 6</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Validação de Motor (Níveis)</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-              <tr>
-                <td class="status-category">Validação de Motor (Diamante Azul)</td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-                <td><span class="status-badge status-danger">🔴 Pendente</span><span class="status-note"><br>Motivo:
-                    Tecnologia Preparando evidências</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
       <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
         <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
           Próximas implantações
         </h2>
         <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-6">
-          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇧🇷</span> Brasil
-            — 17/12/2025</p>
+          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇨🇱</span> Chile
+            — 17/01/2026</p>
           <span class="text-gray-500 text-lg">|</span>
-          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇵🇪</span> Perú —
-            17/12/2025</p>
+          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇨🇴</span>
+            Colômbia —
+            19/01/2026</p>
           <span class="text-gray-500 text-lg">|</span>
-          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇲🇽</span> México
-            — 19/12/2025</p>
+          <p class="text-gray-600 text-[19px] flex items-center gap-2"><span class="text-teal-custom">🇦🇷</span>
+            Argentina
+            — 22/01/2026</p>
+        </div>
+      </div>
+      <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
+        <h2 class="text-xl font-bold text-center text-gray-700 mb-4">
+          Itens trabalhados durante o recesso de fim de ano
+        </h2>
+        <div class="space-y-6">
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)]">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2">
+              <span class="text-teal-custom text-[22px]">🇧🇷</span>
+              <span class="text-[22px]">Brasil</span>
+            </h3>
+            <ul class="space-y-2 text-gray-600">
+              <li><strong>8 itens no total</strong></li>
+              <li>1 item concluído</li>
+              <li>2 itens aguardando validação</li>
+              <li>5 itens backlog Q1 (melhorias)</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)]">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2">
+              <span class="text-teal-custom text-[22px]">🇲🇽</span>
+              <span class="text-[22px]">México</span>
+            </h3>
+            <ul class="space-y-2 text-gray-600">
+              <li><strong>21 itens no total</strong></li>
+              <li>15 itens concluídos (3 itens aguardando reprocessamento até 07/01)</li>
+              <li>3 itens bloqueados (dependem de pacote mobile)</li>
+              <li>2 itens backlog Q1 (melhoria)</li>
+              <li>1 item em teste</li>
+            </ul>
+          </div>
+          <div class="rounded-xl border border-[rgba(148,163,184,0.35)] p-4 bg-[rgba(17,28,46,0.7)]">
+            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center justify-center gap-2">
+              <span class="text-teal-custom text-[22px]">🇵🇪</span>
+              <span class="text-[22px]">Perú</span>
+            </h3>
+            <ul class="space-y-2 text-gray-600">
+              <li><strong>40 itens no total</strong></li>
+              <li>35 itens concluídos (8 itens aguardando reprocessamento até 07/01)</li>
+              <li>2 itens em teste</li>
+              <li>2 itens backlog Q1</li>
+              <li>1 item cancelado</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
@@ -778,22 +434,12 @@
         <div>
           <div class="delivery-item">
             <h3 class="font-semibold text-yellow-800">
-              O time do NaturaPay continua atuando de forma manual até que os sistemas estejam configurados com os novos
-              níveis do Plano de Crescimento, conforme alinhado em reuniões do projeto.
+              UX e QA estão fazendo um regressivo nos conteúdos dos países da Hispana para identificar erros e
+              ralizarmos os ajustes necessários, dado que grande parte dos erros apontados pelos países era de
+              conteúdo/idioma.
             </h3>
           </div>
-          <div class="delivery-item">
-            <h3 class="font-semibold text-yellow-800">
-              Os testes com os Key Users dos demais países estão em andamento e a data para finalizarem é hoje, com
-              excessão da navegação assistida que teremos agendas entre hoje e amanhã com o MX.
-            </h3>
-          </div>
-          <div class="delivery-item">
-            <h3 class="font-semibold text-yellow-800">
-              Danilo do time do Ecommerce trouxe uma preocupação com relação a mudança de níveis (IDs) para a hispana e
-              trará o tema na reunião de status do projeto para alinhamento.
-            </h3>
-          </div>
+
         </div>
       </div>
       <div class="lg:col-span-3 bg-white rounded-xl shadow-lg p-6">
@@ -812,213 +458,7 @@
   </div>
 
   <script>
-    const tooltipOptions = {
-      callbacks: {
-        title: function (tooltipItems) {
-          const item = tooltipItems[0];
-          const label = item.chart.data.labels[item.dataIndex];
-          return Array.isArray(label) ? label.join(" ") : label;
-        },
-      },
-      backgroundColor: "#101c2f",
-      titleColor: "#f8fafc",
-      bodyColor: "#cbd5f5",
-      borderColor: "rgba(148, 163, 184, 0.4)",
-      borderWidth: 1,
-      displayColors: false,
-    };
-
-    const taskDistributionData = [0, 0, 0, 0, 0, 98];
-    const taskDistributionLabels = [
-      "Backlog",
-      "Pronta para desenvolvimento",
-      "Desenvolvendo",
-      "Pronta para teste",
-      "Em teste",
-      "Concluídas",
-    ];
-    const taskColors = [
-      "#E84855",
-      "#F28F3B",
-      "#FFC759",
-      "#4D9DE0",
-      "#C5D86D",
-      "#3BA865",
-      "#2a7fff",
-      "#ffff00"
-    ];
-
-    const taskFlowContainer = document.getElementById("taskFlowContainer");
-    taskDistributionLabels.forEach((label, index) => {
-      const count = taskDistributionData[index];
-      const color = taskColors[index];
-
-      const flowItem = document.createElement("div");
-      flowItem.className = `flex flex-col items-center p-4 rounded-xl shadow-md task-flow-card`;
-      flowItem.style.border = `2px solid ${color}`;
-      flowItem.innerHTML = `
-                <div class="text-xs font-semibold text-gray-600 mb-1">${label}</div>
-                <div class="text-3xl font-bold text-gray-800">${count}</div>
-            `;
-      taskFlowContainer.appendChild(flowItem);
-
-      if (index < taskDistributionLabels.length - 1) {
-        const arrow = document.createElement("div");
-        arrow.className = `text-2xl font-bold flex items-center justify-center h-full px-2 task-flow-arrow`;
-        arrow.innerHTML = "&rarr;";
-        taskFlowContainer.appendChild(arrow);
-      }
-    });
-
-    const totalTasks = taskDistributionData.reduce(
-      (sum, value) => sum + value,
-      0
-    );
-    const developingTasks =
-      taskDistributionData[taskDistributionLabels.indexOf("Desenvolvendo")];
-    const completedTasks =
-      taskDistributionData[taskDistributionLabels.indexOf("Concluídas")];
-    const pendingTasks = totalTasks - completedTasks - developingTasks;
-    const completionPercentage = (
-      (completedTasks / totalTasks) *
-      100
-    ).toFixed(1);
-
-    document.getElementById(
-      "taskCompletionSummary"
-    ).innerText = `Temos ${totalTasks} atividades mapeadas, ${developingTasks} estão em desenvolvimento e ${completedTasks} foram concluídas, representando um avanço de ${completionPercentage}% no escopo mapeado até o momento.`;
-
-    const taskCompletionCtx = document
-      .getElementById("taskCompletionChart")
-      .getContext("2d");
-    new Chart(taskCompletionCtx, {
-      type: "doughnut",
-      data: {
-        labels: ["Concluídas", "Em andamento", "Pendentes"],
-        datasets: [
-          {
-            data: [completedTasks, developingTasks, pendingTasks],
-            backgroundColor: ["#00A6A6", "#f67828", "#e5e7eb"],
-            borderColor: ["rgba(0,0,0,0)"],
-            borderWidth: 2,
-            hoverOffset: 8,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: "70%",
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              color: "#cbd5f5",
-            },
-          },
-          tooltip: tooltipOptions,
-        },
-      },
-    });
-
-    const startDate = new Date("2025-07-21");
-    const endDate = new Date("2025-12-05");
-    const today = new Date();
-
-    const totalDurationMs = endDate - startDate;
-    const elapsedDurationMs = today - startDate;
-
-    const totalDurationDays = totalDurationMs / (1000 * 60 * 60 * 24);
-    const elapsedDurationDays = elapsedDurationMs / (1000 * 60 * 60 * 24);
-
-    let timelineElapsed = Math.max(0, elapsedDurationDays);
-    let timelineRemaining = Math.max(
-      0,
-      totalDurationDays - elapsedDurationDays
-    );
-
-    if (today > endDate) {
-      timelineElapsed = totalDurationDays;
-      timelineRemaining = 0;
-    }
-
-    const timelineCompletionPercentage = (
-      (timelineElapsed / totalDurationDays) *
-      100
-    ).toFixed(1);
-
-    document.getElementById(
-      "timelineCompletionSummary"
-    ).innerText = `${timelineCompletionPercentage}% do tempo total do projeto já decorreu, alinhado com o progresso atual das entregas.`;
-
-    const timelineCompletionCtx = document
-      .getElementById("timelineCompletionChart")
-      .getContext("2d");
-    new Chart(timelineCompletionCtx, {
-      type: "doughnut",
-      data: {
-        labels: ["Decorrido", "Restante"],
-        datasets: [
-          {
-            data: [timelineElapsed, timelineRemaining],
-            backgroundColor: ["#F28F3B", "#e5e7eb"],
-            borderColor: ["rgba(0,0,0,0)"],
-            borderWidth: 2,
-            hoverOffset: 8,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: "70%",
-        plugins: {
-          legend: {
-            position: "bottom",
-            labels: {
-              color: "#cbd5f5",
-            },
-          },
-          tooltip: tooltipOptions,
-        },
-      },
-    });
-
-    const backlogSlides = Array.from(
-      document.querySelectorAll(".backlog-slide")
-    );
-    const backlogIndicator = document.getElementById("backlogIndicator");
-    const backlogPrev = document.getElementById("backlogPrev");
-    const backlogNext = document.getElementById("backlogNext");
-    const backlogLabels = ["Brasil", "Perú", "México"];
-
-    if (
-      backlogSlides.length &&
-      backlogIndicator &&
-      backlogPrev &&
-      backlogNext
-    ) {
-      let backlogIndex = 0;
-
-      function renderBacklogSlide(index) {
-        backlogSlides.forEach((slide, i) => {
-          slide.classList.toggle("hidden", i !== index);
-        });
-        backlogIndicator.textContent = `${backlogLabels[index]} (${index + 1}/${backlogSlides.length})`;
-      }
-
-      backlogPrev.addEventListener("click", () => {
-        backlogIndex = (backlogIndex - 1 + backlogSlides.length) % backlogSlides.length;
-        renderBacklogSlide(backlogIndex);
-      });
-
-      backlogNext.addEventListener("click", () => {
-        backlogIndex = (backlogIndex + 1) % backlogSlides.length;
-        renderBacklogSlide(backlogIndex);
-      });
-
-      renderBacklogSlide(backlogIndex);
-    }
+    // Script removido - não há mais elementos interativos na página
   </script>
 </body>
 
